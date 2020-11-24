@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Calendar";
+}
+
+
+
+<h1>This is a test of the Calendar Page</h1>
+<h4>Content coming soon...</h4> 
+
+@section Styles{
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+}
+
+<div id="secList" class="section">
+    <h1>My Calendar</h1>
+    <div>
+        <button id="showDetails" class="btn btn-primary">
+            <i id="iconEye" class="far fa-eye"></i>Show Details</button>
+    </div>
+    <div id="pendingTasks">
+
+    </div>
+</div>
+
+<div id="secForm" class="section">
+    <h3>Task Information</h3>
+    <div id="alertTitle" class="alert alert-danger">
+        Error: Verify the title of the task.
+    </div>
+    <input id="txtTitle" type="text" class="control" placeholder="Title of task">
+    <input id="txtDate" type="datetime-local" class="control" placeholder="When is the event?">
+    <label class="control">Is it important?<i id="iconImp" class="far fa-star"></i></label>
+    <textarea id="txtDescription" class="control" placeholder="Describe the task?"></textarea>
+    <input id="txtLocation" type="text" class="control" placeholder="What is the location?">
+    <button id="btnSaveTask" class="btn btn-info"><i id="iconSave" class="fas fa-cloud-download-alt"></i>Save Task</button>
+
+
+</div>
+
+@section Scripts {
+    <script src="/js/task.js"></script>
+    <script src="/js/main.js"></script>
+}

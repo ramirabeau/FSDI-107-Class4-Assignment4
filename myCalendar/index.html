@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calendar</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div id="secList" class="section">
+        <h1>My Calendar</h1>
+        <div>
+            <button id="showDetails" class="btn btn-primary">
+                <i id="iconEye" class="far fa-eye"></i>Show Details</button>
+        </div>
+        <div id="pendingTasks">
+
+        </div>
+    </div>
+
+    <div id="secForm" class="section">
+        <h3>Task Information</h3>
+        <div id="alertTitle" class="alert alert-danger">
+            Error: Verify the title of the task.
+        </div>
+        <input id="txtTitle" type="text" class="control" placeholder="Title of task">
+        <input id="txtDate" type="datetime-local" class="control" placeholder="When is the event?">
+        <label class="control">Is it important?<i id="iconImp" class="far fa-star"></i></label>
+        <textarea id="txtDescription" class="control" placeholder="Describe the task?"></textarea>
+        <input id="txtLocation" type="text" class="control" placeholder="What is the location?">
+        <button id="btnSaveTask" class="btn btn-info"><i id="iconSave" class="fas fa-cloud-download-alt"></i>Save Task</button>
+
+
+    </div>
+
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/task.js"></script>
+    <script src="./js/main.js"></script>
+
+
+</body>
+
+
+</html>
+
+<!--
+
+    Title
+    date
+    important
+    description
+    save btn
+-->
