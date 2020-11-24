@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using Class2_FS_Calendar.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace Class2_FS_Calendar
 {
     public class Startup
@@ -24,6 +27,11 @@ namespace Class2_FS_Calendar
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //Config Db service
+            string conString = "Data Source=TaskDatabase.db";
+            services.AddDbContext<DataContext>(options => options.UseSqlite(conString));
+            //constring.org gives the instructions to import info into databases
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

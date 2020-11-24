@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Class2_FS_Calendar.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace Class2_FS_Calendar.Controllers
@@ -9,18 +10,21 @@ namespace Class2_FS_Calendar.Controllers
 
     public class ApiController : Controller
     {
+        private DataContext dbContext;
+
+        public ApiController(DataContext db)
+        {
+            this.dbContext = db;
+        }
+
 
         [HttpPost]
         public IActionResult SaveTask([FromBody] Task theTask)
         {
-            //get the object
-            System.Console.WriteLine("Saving Tasks");
-
             //save the object
-
-            //set the ID
-            theTask.Id = 1;
-
+            dbContext.Tasks.Add(theTask);
+            dbContext.SaveChanges();
+           
             //return the object
             return Json(theTask);
         }
@@ -28,6 +32,11 @@ namespace Class2_FS_Calendar.Controllers
         [HttpGet]
         public IActionResult GetTasks()
         {
+
+            var allTasks = dbContext.Tasks.ToList();
+            return Json(allTasks);
+
+            /*
             var list = new List<Task>();
             var myTask = new Task();
             myTask.Title = "Hardcoded";
@@ -38,7 +47,8 @@ namespace Class2_FS_Calendar.Controllers
 
             list.Add(myTask);
             return Json(list);
-            
+            */
+
 
         }
         public IActionResult Test()
@@ -47,3 +57,19 @@ namespace Class2_FS_Calendar.Controllers
         }
     }
 }
+
+// SQL
+// First need to open connection
+// Establish the query
+//** Sample ** "insert into Task(id, title, location, important) VALUE(" + obj.id + ", "+ obj.title +", " +obj.location + ", " +obj.important + ");" 
+
+// Then execute the request
+// close connection
+
+// Or use ORM
+
+//Task.save(obj);
+
+// select * from Task
+
+
