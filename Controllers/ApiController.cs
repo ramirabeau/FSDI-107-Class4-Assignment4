@@ -51,6 +51,20 @@ namespace Class2_FS_Calendar.Controllers
 
 
         }
+
+        [HttpDelete]
+        public IActionResult DeleteTask(int id)
+        {
+            Task theTask = dbContext.Tasks.Find(id); //find the task with that id
+            dbContext.Tasks.Remove(theTask); //ask the database to remove that task
+            dbContext.SaveChanges(); //Save the changes to the database
+
+            return Ok(); //Always return something or the UI will hang waiting for a response.
+
+
+        }
+
+
         public IActionResult Test()
         {
             return Content("Hello FSDI");

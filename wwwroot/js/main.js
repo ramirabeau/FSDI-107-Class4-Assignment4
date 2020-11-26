@@ -97,7 +97,7 @@ function displayTask(task) {
         <i class = "fas fa-trash"
     onclick ='deleteTask(${task.id})' > </i> </div>
 
-    </div>
+    </div> 
     `;
     console.log("Display Task");
     $("#pendingTasks").append(syntax);
@@ -110,7 +110,7 @@ function deleteTask(id) {
     console.log('Deleting', id);
     $.ajax({
         type: 'DELETE',
-        url: server + '/tasks/' + id,
+        url: '/api/DeleteTask/' + id,
         success: function(res) {
             console.log("Deleted");
 
